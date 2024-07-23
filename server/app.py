@@ -23,16 +23,6 @@ def index():
         200
     )
 
-@app.route('/demo_json')
-def demo_json():
-    pet = Pet.query.first()
-    pet_dict = {
-        'id': pet.id,
-        'name': pet.name,
-        'species': pet.species
-    }
-    return make_response(pet_dict, 200)
-
 @app.route('/pets/<int:id>')
 def pet_by_id(id):
     pet = Pet.query.filter(Pet.id == id).first()
